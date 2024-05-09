@@ -4,11 +4,20 @@ book_1 = 8
 book_2 = book_1 + 2
 book_3 = int((book_1 + book_2)/2)
 total_book = book_1 + book_2 + book_3
+
 print(f"Так, як перша книжка коштує {book_1}, друга - на 2 грн. дороже" \
     "- то нам потрібно 8 грн додати 2 грн - то це означає, що друга книга" \
     "довірнює {book_2}, а третя - як половина вартості першої та другої разом" \
     "- то нам потрібно добавити {book_1} грн та {book_2} грн і поділити на два," \
     "і тоді третя книжка дорівнює {book_3} грн, всі книжки разом будуть коштувати {total_book} грн")
+=======
+output = f"Так, як перша книжка коштує {book_1}, друга - на 2 грн. дороже" \
+    f"- то нам потрібно 8 грн додати 2 грн - то це означає, що друга книга" \
+    f"довірнює {book_2}, а третя - як половина вартості першої та другої разом" \
+    f"- то нам потрібно добавити {book_1} грн та {book_2} грн і поділити на два," \
+    f"і тоді третя книжка дорівнює {book_3} грн, всі книжки разом будуть коштувати {total_book} грн"
+print(output)
+
 
 
 first_line = """<tr><td><a href='https://link.company.com/screens/drqs{drqs_number}' target='_blank'>
@@ -21,6 +30,7 @@ second_line = ("asdfghjklqwertyu"
     "1234567890"
     ")(*&^%#%#&*&^%??><<@!)"
     "djfhdjd,f")
+
 #print(second_line)
 '''
 False      await      else       import     pass
@@ -65,6 +75,55 @@ my_dict = {'ключ': 'значення'}; my_dict2 = {} # bad example of code
 """get me
 more Python"""
 1.23
+=======
+print(second_line)
+# '''
+# False      await      else       import     pass
+# None       break      except     in         raise
+# True       class      finally    is         return
+# and        continue   for        lambda     try
+# as         def        from       nonlocal   while
+# assert     del        global     not        with
+# async      elif       if         or         yield
+# '''
+
+# # Оператори дій
+# 1+1
+# 1-2
+# 1*1
+# # +  -  *  /  %   **  //  <<  >>  &   @
+# # |  ^  ~  <  <=  >   >=  !=  ==  @=  :=
+
+# Розділювачі та Спеціальні токени
+"""
+(    )    [    ]    {    }
+
+,    :    .    =    ;    @
+
++=   -=   *=   /=   //=  %=
+
+&=   |=   ^=   >>=  <<=  **=
+"""
+#  '  "  \
+result  = (2 + 3) * 4  # get result value
+print(result) # print result variable
+print('abc' == "abc" == """abc""" == '''abc''')
+
+my_list = [1, 2, 3, 5]
+print(my_list)
+for i in my_list:
+    print(i)
+
+# my_dict = {'ключ': 'значення'}; my_dict2 = {} # bad example of code
+my_dict = {'ключ': 'значення'}
+my_dict2 = {}
+
+# Літерали
+a = 42
+b = "hello"
+c = """get me
+more Python"""
+d = 1.23
 
 # Типи даних
 ## Цілі числа
@@ -82,7 +141,11 @@ print(one_number, vosm_number, sx_number, bin_num)
 
 print(1.0E100)
 
+
 print(3.1428571428571 == aples / users)
+=======
+print(3.14285714285714 == aples / users)
+
 
 ## Строки
 hello = "hello"
@@ -91,6 +154,12 @@ english_words = 'I don\'t know'
 print(type(english_words))
 print(english_words[2])
 # english_words[2] = "t"  # ПОМИЛКА!!!!
+
+english_words = 'I don\\\'t know' 
+print(type(english_words))
+print(english_words[5])
+# english_words[2] = "t"  # ПОМИЛКА!!!!
+
 ## Кортежі (Tuples)
 my_tuple = (0, 2, 4, 6)
 print(my_tuple[0])
@@ -105,6 +174,9 @@ print(new_list[-1])
 alphabet = ["a", "b", "c", "a"]
 print(alphabet)
 #print(new_list)
+=======
+print(new_list)
+
 ## Набори {Sets}
 simple_set = {1, 2, 3, 1}
 print(simple_set)
@@ -114,15 +186,28 @@ print(samle_dict["key"])
 
 ## None
 a = None
+=======
+samle_dict = {"key": "value", "hello":"привіт"}
+print(samle_dict["key"])
+print(samle_dict["hello"])
+
+## None
+a = None
+print(a is None)
 ## Булеві значення
 True
 False
-
 1 == 1
 2 > 56
 # "a" < 45  # різні типи - помилка!!!
 
 # Змінні у Пітоні
+=======
+print("1 == 1", 1 == 1)
+print("2 > 56", 2 > 56)
+# "a" < 45  # різні типи - помилка!!!
+
+# # Змінні у Пітоні
 storona_1 = 1
 storona_2 = 1 + 1
 _some_var_ = 2
@@ -150,11 +235,26 @@ print(s3)
 s4 = 22 - (7 * s2)
 
 #print(s4 == s3)
+=======
+
+# Числові операції
+## Ділення
+s = 22 / 7  # математичне ділення ЗАВЖДИ float
+print(s)
+s2 = 22 // 7  # ціле від ділення int
+print(s2)
+s3 = 22 % 7   # залишок від ділення int
+print(s3)
+s4 = 22 - (7 * s2)
+print(s4 == s3)
+
 ## Множення, додавання, віднімання
 x = 2
 x2 = x * 2
 print(x2)
 print("*" * 8)
+=======
+print("*" * 88)
 print("sa"+"sha")
 
 
@@ -169,6 +269,8 @@ y = max(1, 2, 3)
 print(x, y)
 
 # Ввод та вивід даних
+=======
+# # Ввод та вивід даних
 # print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
 ## f-string
 year = 2006
@@ -192,6 +294,15 @@ print(fruits)
 ## multiply
 
 ## ввод
+=======
+# ## concatenate
+# f_list = ["apple", "banana", "kivi"]
+# fruits = ", ".join(f_list)
+# print(fruits)
+
+# ## multiply
+
+# ## ввод
 eggs = input("Скількі яєць на сніданок бажаєте? ")
 eggs = int(eggs)
 print(f"Ви замовили {eggs*2} яєць (ваш бонус враховано)")

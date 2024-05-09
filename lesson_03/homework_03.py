@@ -9,6 +9,12 @@ print(alice_in_wonderland)
 # task 01 == Розділіть змінну alice_in_wonderland так, щоб вона займала декілька фізичних лінії
 # task 02 == Знайдіть та екрануйте всі символи одинарної дужки у тексті
 # task 03 == Виведіть змінну alice_in_wonderland на друк
+=======
+alice_in_wonderland = '"Would you tell me, please, which way I ought to go from here?"\n"That depends a good deal on where you want to get to," said the Cat.\n"I don't much care where ——" said Alice.\n"Then it doesn't matter which way you go," said the Cat.\n"—— so long as I get somewhere," Alice added as an explanation.\n"Oh, you're sure to do that," said the Cat, "if you only walk long enough."'
+# task 01 == Розділіть змінну alice_in_wonderland так, щоб вона займала декілька фізичних лінії
+# task 02 == Знайдіть та екрануйте всі символи одинарної дужки у тексті
+# task 03 == Виведіть змінну alice_in_wonderland на друк
+
 """
     # Задачі 04 -10:
     # Переведіть задачі з книги "Математика, 5 клас"
@@ -31,7 +37,6 @@ print("\n", "black sea -", black_sea, "km2",
 
 print("1)", black_sea, "+", azov_sea, "=", both_seas, "km2", "(area of ​​both seas)")
 print("Answer: the area of ​​both seas is", both_seas, "km2.", "\n")
-
 
 # task 05
 """
@@ -62,7 +67,6 @@ print("Answer: products in the first warehouse -", warehouse_1,
       "\n", "products in the second warehouse -", warehouse_2, 
       "\n", "products in the third warehouse -", warehouse_3, "\n")
 
-
 # task 06
 """
 Михайло разом з батьками вирішили купити комп’ютер, ско-
@@ -78,7 +82,6 @@ print("\n", "payment of one month -", month_1, "UAH",
       "\n", "year and a half -", year_and_half, "months")
 print("\n", "1)", month_1, "*", year_and_half, "=", cost_of_the_computer, "UAH", "(cost of the computer)")
 print("Answer: the full price of the computer is UAH", cost_of_the_computer)
-
 
 # task 07
 """
@@ -127,7 +130,6 @@ f_3 = 9
 f_4 = f_2 / f_3 
 print("f)", f_2, ":", f_3, "=", f_4, ",", "remainder =", f_1)
 
-
 # task 08
 """
 Іринка, готуючись до свого дня народження, склала список того,
@@ -167,7 +169,6 @@ print("\n", "1)", large_pizza_1, "*", quantity_of_large_pizza, "=", cost_large_p
      "\n", "4)", water, "*", quantity_of_water, "=", cost_water, "UAH(cost of 3 water)",
      "\n", "5)", cost_large_pizzas, "+", cost_average_pizzas, "+", cost_juices, "+", cake, "+", cost_water, "=", cost_of_everything, "UAH(cost of everything)")
 print("Answer:", cost_of_everything, "UAH are required for the order.")
-
 
 # task 09
 """
