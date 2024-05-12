@@ -24,27 +24,24 @@ rolling in wealth."""
 """ Дані у строці adwentures_of_tom_sawer розбиті випадковим чином, через помилку.
 треба замінити кінець абзацу на пробіл .replace("\n", " ")"""
 
-# print(adwentures_of_tom_sawer)
-replaced_space = adwentures_of_tom_sawer.replace('\n', ' ')
-print(replaced_space)
+adwentures_of_tom_sawer = adwentures_of_tom_sawer.replace('\n', ' ')
 
 # task 02 ==
 """ Замініть .... на пробіл
 """
-replaced_space_dot = replaced_space.replace('....', ' ')
-print(replaced_space_dot)
+adwentures_of_tom_sawer = adwentures_of_tom_sawer.replace('....', ' ')
 
 # task 03 ==
 """ Зробіть так, щоб у тексті було не більше одного пробілу між словами.
 """
-replaced_one_space_dot = replaced_space_dot.replace('   ', ' ')
-print(replaced_one_space_dot)
+adwentures_of_tom_sawer = adwentures_of_tom_sawer.replace('   ', ' ')
+print(adwentures_of_tom_sawer)
 
 # task 04
 """ Виведіть, скількі разів у тексті зустрічається літера "h"
 """
 count_h = 0
-for i in replaced_one_space_dot:
+for i in adwentures_of_tom_sawer:
     if i == 'h':
         count_h += 1
 
@@ -54,7 +51,7 @@ print(f'\nLetter \'h\' in a string: {count_h}')
 """ Виведіть, скільки слів у тексті починається з Великої літери?
 """
 count_upper_letter = 0
-for i in replaced_one_space_dot:
+for i in adwentures_of_tom_sawer:
     if i.isupper():
         count_upper_letter += 1
 
@@ -63,14 +60,14 @@ print(f'\nWords start with a capital letter: {count_upper_letter} in a string')
 # task 06
 """ Виведіть позицію, на якій слово Tom зустрічається вдруге
 """
-find_tom_second_place = replaced_one_space_dot.find('Tom', replaced_one_space_dot.find('Tom') + 1)
+find_tom_second_place = adwentures_of_tom_sawer.find('Tom', adwentures_of_tom_sawer.find('Tom') + 1)
 print(f'\nWord \'Tom\' meets on a position {find_tom_second_place} after first meeting\n')
 
 # task 07
 """ Розділіть змінну adwentures_of_tom_sawer по кінцю речення.
 Збережіть результат у змінній adwentures_of_tom_sawer_sentences
 """
-adwentures_of_tom_sawer_sentences = replaced_one_space_dot.split('. ')
+adwentures_of_tom_sawer_sentences = adwentures_of_tom_sawer.split('. ')
 print(adwentures_of_tom_sawer_sentences)
 
 # task 08
