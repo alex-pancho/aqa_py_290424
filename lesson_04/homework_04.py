@@ -24,47 +24,68 @@ rolling in wealth."""
 """ Дані у строці adwentures_of_tom_sawer розбиті випадковим чином, через помилку.
 треба замінити кінець абзацу на пробіл .replace("\n", " ")"""
 
+adwentures_of_tom_sawer = adwentures_of_tom_sawer.replace('\n', ' ')
+
 # task 02 ==
 """ Замініть .... на пробіл
 """
+adwentures_of_tom_sawer = adwentures_of_tom_sawer.replace('....', ' ')
 
 # task 03 ==
 """ Зробіть так, щоб у тексті було не більше одного пробілу між словами.
 """
-
+adwentures_of_tom_sawer = adwentures_of_tom_sawer.replace('   ', ' ')
+print(adwentures_of_tom_sawer)
 
 # task 04
 """ Виведіть, скількі разів у тексті зустрічається літера "h"
 """
+count_h = 0
+for i in adwentures_of_tom_sawer:
+    if i == 'h':
+        count_h += 1
 
+print(f'\nLetter \'h\' in a string: {count_h}')
 
 # task 05
 """ Виведіть, скільки слів у тексті починається з Великої літери?
 """
+count_upper_letter = 0
+for i in adwentures_of_tom_sawer:
+    if i.isupper():
+        count_upper_letter += 1
 
+print(f'\nWords start with a capital letter: {count_upper_letter} in a string')
 
 # task 06
 """ Виведіть позицію, на якій слово Tom зустрічається вдруге
 """
-
+find_tom_second_place = adwentures_of_tom_sawer.find('Tom', adwentures_of_tom_sawer.find('Tom') + 1)
+print(f'\nWord \'Tom\' meets on a position {find_tom_second_place} after first meeting\n')
 
 # task 07
 """ Розділіть змінну adwentures_of_tom_sawer по кінцю речення.
 Збережіть результат у змінній adwentures_of_tom_sawer_sentences
 """
-adwentures_of_tom_sawer_sentences = None
+adwentures_of_tom_sawer_sentences = adwentures_of_tom_sawer.split('. ')
+print(adwentures_of_tom_sawer_sentences)
 
 # task 08
 """ Виведіть четверте речення з adwentures_of_tom_sawer_sentences.
 Перетворіть рядок у нижній регістр.
 """
-
+print(adwentures_of_tom_sawer_sentences[3].lower())
 
 # task 09
 """ Перевірте чи починається якесь речення з "By the time".
 """
-
+for sentence in adwentures_of_tom_sawer_sentences:
+    if sentence.startswith('By the time'):
+        print('\nThere is a sentence in a string which start with words \'By the time\'')
 
 # task 10
 """ Виведіть кількість слів останнього речення з adwentures_of_tom_sawer_sentences.
 """
+last_sentence = adwentures_of_tom_sawer_sentences[-1]
+count_words_in_last_sentence = len(last_sentence.split())
+print(f'\nThere are {count_words_in_last_sentence} words in a last sentence of a string')
