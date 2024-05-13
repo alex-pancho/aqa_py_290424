@@ -1,3 +1,4 @@
+
 print("Task 01-03")
 alice_in_wonderland = '"Would you tell me, please, which way I ought to go from here?"\n' \
                       '"That depends a good deal on where you want to get to," said the Cat.\n' \
@@ -9,6 +10,13 @@ print(alice_in_wonderland)
 # task 01 == Розділіть змінну alice_in_wonderland так, щоб вона займала декілька фізичних лінії
 # task 02 == Знайдіть та екрануйте всі символи одинарної дужки у тексті
 # task 03 == Виведіть змінну alice_in_wonderland на друк
+
+alice_in_wonderland = '"Would you tell me, please, which way I ought to go from here?"\n"That depends a good deal on where you want to get to," said the Cat.\n"I don't much care where ——" said Alice.\n"Then it doesn't matter which way you go," said the Cat.\n"—— so long as I get somewhere," Alice added as an explanation.\n"Oh, you're sure to do that," said the Cat, "if you only walk long enough."'
+# task 01 == Розділіть змінну alice_in_wonderland так, щоб вона займала декілька фізичних лінії
+# task 02 == Знайдіть та екрануйте всі символи одинарної дужки у тексті
+# task 03 == Виведіть змінну alice_in_wonderland на друк
+
+
 """
     # Задачі 04 -10:
     # Переведіть задачі з книги "Математика, 5 клас"
@@ -21,6 +29,7 @@ print(alice_in_wonderland)
 моря становить 37 800 км2. Яку площу займають Чорне та Азов-
 ське моря разом?
 """
+
 print("\n", "Task 04")
 black_sea = 436402
 azov_sea = 37800
@@ -33,6 +42,7 @@ print("1)", black_sea, "+", azov_sea, "=", both_seas, "km2", "(area of ​​bot
 print("Answer: the area of ​​both seas is", both_seas, "km2.", "\n")
 
 
+
 # task 05
 """
 Мережа супермаркетів має 3 склади, де всього розміщено
@@ -40,6 +50,7 @@ print("Answer: the area of ​​both seas is", both_seas, "km2.", "\n")
 250 449 товарів. На другому та третьому – 222 950 товарів.
 Знайдіть кількість товарів, що розміщені на кожному складі.
 """
+
 print("\n", "Task 05")
 all_warehouses = 375291
 warehouse_1_2 = 250449
@@ -63,13 +74,14 @@ print("Answer: products in the first warehouse -", warehouse_1,
       "\n", "products in the third warehouse -", warehouse_3, "\n")
 
 
+
 # task 06
 """
 Михайло разом з батьками вирішили купити комп’ютер, ско-
 риставшись послугою «Оплата частинами». Відомо, що сплачу-
 вати необхідно буде півтора року по 1179 грн/місяць. Обчисліть
 вартість комп’ютера.
-"""
+
 print("\n", "Task 06")
 month_1 = 1179
 year_and_half = 18
@@ -80,6 +92,8 @@ print("\n", "1)", month_1, "*", year_and_half, "=", cost_of_the_computer, "UAH",
 print("Answer: the full price of the computer is UAH", cost_of_the_computer)
 
 
+
+
 # task 07
 """
 Знайди остачу від діленя чисел:
@@ -87,6 +101,7 @@ a) 8019 : 8     d) 7248 : 6
 b) 9907 : 9     e) 7128 : 5
 c) 2789 : 5     f) 19224 : 9
 """
+
 print("\n", "Task 07", "\n")
 a_1 = 8019 % 8
 a_2 = 8016
@@ -128,6 +143,7 @@ f_4 = f_2 / f_3
 print("f)", f_2, ":", f_3, "=", f_4, ",", "remainder =", f_1)
 
 
+
 # task 08
 """
 Іринка, готуючись до свого дня народження, склала список того,
@@ -140,6 +156,7 @@ print("f)", f_2, ":", f_3, "=", f_4, ",", "remainder =", f_1)
 Торт            1           350 грн
 Вода            3           21 грн
 """
+
 print("\n", "Task 08")
 large_pizza_1 = 274
 quantity_of_large_pizza = 4
@@ -197,6 +214,7 @@ print("Answer:", pages, "pages are required for all photos.")
 равку під час цієї подорожі, кожного разу заправляючи пов-
 ний бак?
 """
+
 print("\n", "Task 10")
 the_whole_distance = 1600
 for_100_km = 9
