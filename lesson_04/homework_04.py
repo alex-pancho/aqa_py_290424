@@ -81,8 +81,13 @@ print(adwentures_of_tom_sawer_sentences[3].lower())
 for sentence in adwentures_of_tom_sawer_sentences:
     if sentence.lstrip().startswith("By the time"):
         print("There is a sentence starting with By the time")
-
+        break
 # task 10
 """ Виведіть кількість слів останнього речення з adwentures_of_tom_sawer_sentences.
 """
-print(adwentures_of_tom_sawer_sentences[4].count(" "))
+#оскільки split створив нам додаткову порожню строчку в кінці:
+
+if adwentures_of_tom_sawer_sentences[-1]:
+    print(adwentures_of_tom_sawer_sentences[-1].count(" "))
+else:
+    print(adwentures_of_tom_sawer_sentences[-2].count(" "))
