@@ -24,9 +24,9 @@ print(alice_in_wonderland)
 ське моря разом?
 """
 # my answer:
-Black_Sea_Area_km2 = 436402
-Azov_Sea_Area_km2 = 37800
-total_area_km2 = Black_Sea_Area_km2 + Azov_Sea_Area_km2
+black_sea_area_km2 = 436402
+azov_sea_area_km2 = 37800
+total_area_km2 = black_sea_area_km2 + azov_sea_area_km2
 print("Let's calculate the total area: Area of the Black Sea in km2 + Area of the Azov Sea in km2 = " + str(total_area_km2) + " km2")
 
 
@@ -44,7 +44,7 @@ stores_2_3 = 222950
 store_1 = total_amount - stores_2_3
 store_2 = stores_1_2 - store_1
 store_3 = stores_2_3 - store_2
-print(f'''If total_amount = 375291
+print(f'''If total_amount = {total_amount}
 stores_1_2 = 250449
 stores_2_3 = 222950,
 then quantity of goods in store 1(total_amount - stores_2_3) = {store_1};
@@ -130,7 +130,8 @@ total to pay: {big_piza_price * 4 + medium_piza_price * 2 + juice_price * 4 + ca
 # my answer:
 number_of_fotos = 232
 max_fotos_on_page = 8
-print(f"How many pages for all fotos: 232/8 = {232/8}")
+
+print(f"How many pages for all fotos: 232/8 = {232//8 + 232//8%8}")
 
 # task 10
 """
