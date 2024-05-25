@@ -105,14 +105,19 @@ print(set_03)
 
 person_list = [('Alice', 25), ('Boby', 19), ('Charlie', 32),
                ('David', 28), ('Emma', 22), ('Frank', 45)]
-range_list = ["10-19", "20-29", "30-39", "40-49", "50-59"]
+
+minimal_age = 10
+maximal_age = 50
+step = 10
 person_list_dict = {}
-for range in range_list:
+for temp_min in range(minimal_age, maximal_age, step):
+    temp_max = temp_min + 9
     temp_list = []
     for person in person_list:
-        if person[1] >= int(range[0:2]) and person[1] <= int(range[3:5]):
+        if person[1] >= temp_min and person[1] <= temp_max:
             temp_list.append(person[0])
 
-    person_list_dict.update({range: temp_list})
+    dict_key = str(temp_min) + "-" + str(temp_max)
+    person_list_dict.update({dict_key: temp_list})
 
 print(person_list_dict)
