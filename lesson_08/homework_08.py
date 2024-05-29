@@ -39,20 +39,28 @@
 5. **Посилання на PR вставити у форму відповіді**
 """
 print("\n Task")
-def calculate_sum(list_1):
+def calculate_sum(s):
   try:
-      elements = list_1.split(',')
-      total = sum(int(el) for el in elements)
-      return total
+      elements = s.replace(' ', '').split(',')
+      numbers = [int(element) for element in elements]
+      return sum(numbers)
   except ValueError:
+      """" Якщо є елементи, що не можна перетворити на число, ловимо виключення"""
       return "I can't do it!"
-strings = ["1,2,3,4",
-  "1,2,3,4,50",
-  "qwerty1,2,3"]
-for list_1 in strings:
-  result = calculate_sum(list_1)
-  print(result)
 
+def process_list(lst):
+  results = []
+  for item in lst:
+      result = calculate_sum(item)
+      results.append(result)
+  return results
+
+strings = ["1,2,3,4", 
+           "1,2,3,4,50", 
+           "qwerty1,2,3", 
+           "1, 2, 2"]
+output = process_list(strings)
+print(output) 
 
 
 
