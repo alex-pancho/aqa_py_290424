@@ -8,7 +8,7 @@ def multiplication_table(number):
     multiplier = 1
 
     # Complete the while loop condition.
-    while multiplier:
+    while True:
         result = number * multiplier
         if result > 25:
             break
@@ -45,7 +45,7 @@ def average(*args):
     average_digits = sum(args)/len(args)
     print(f'Середнє арифмитичне списку чисел -> {average_digits}')
 
-average(10,20,30)
+average(5,5,5)
 # task 4
 """  Написати функцію, яка приймає рядок та повертає його у зворотному порядку.
 """
@@ -120,8 +120,8 @@ def is_even(number):
     statement = number % 2 == 0
     return statement
 
-num = 11
-if is_even(num):
-    print(f"Число {num} є парним.")
+number = 11
+if is_even(number):
+    print(f"Число {number} є парним.")
 else:
-    print(f"Число {num} не є парним.")
+    print(f"Число {number} не є парним.")
