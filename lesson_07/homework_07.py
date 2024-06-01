@@ -125,3 +125,5 @@ if is_even(number):
     print(f"Число {number} є парним.")
 else:
     print(f"Число {number} не є парним.")
+
+# updated
