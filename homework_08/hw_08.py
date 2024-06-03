@@ -16,4 +16,4 @@ for s in list_of_strings:
         result = sum_numbers_in_string(s)
         print(result)
     except ValueError as e:
-        print(f"It ia impossible, because: {e}")
+        print(f"It ia impossible,because: {e}")
