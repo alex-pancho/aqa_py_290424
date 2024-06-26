@@ -26,7 +26,7 @@ def log_event(username: str, status: str):
         level=logging.INFO,
         format='%(asctime)s - %(message)s'
         )
-    logger = logging.getLogger("log_event")
+    logger = logging.getLogger("log_event") 
 
     # Логування події
     if status == "success":
