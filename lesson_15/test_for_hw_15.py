@@ -9,10 +9,10 @@ from homework_15 import log_event
 
 class TestLoginSystem(unittest.TestCase):
 
-    def setUp(self):
-        # Очищення лог-файлу перед кожним тестом
-        with open('login_system.log', 'w'):
-            pass
+    # def setUp(self):
+    #     # Очищення лог-файлу перед кожним тестом
+    #     with open('login_system.log', 'w'):
+    #         pass
 
     def test_successful_login(self):
         log_event('john_doe', 'success')

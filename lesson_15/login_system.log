@@ -1,1 +1,5 @@
 2024-06-25 20:53:29,645 - Login event - Username: john_doe, Status: unknown
+2024-06-27 19:18:54,761 - Login event - Username: john_doe, Status: expired
+2024-06-27 19:18:54,762 - Login event - Username: john_doe, Status: failed
+2024-06-27 19:18:54,762 - Login event - Username: john_doe, Status: success
+2024-06-27 19:18:54,763 - Login event - Username: john_doe, Status: unknown
