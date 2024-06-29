@@ -5,6 +5,8 @@
 """
 
 import logging
+import os
+
 
 def log_event(username: str, status: str):
     """
@@ -18,15 +20,30 @@ def log_event(username: str, status: str):
     * expired - пароль застаріває і його слід замінити, логується на рівні warning
     * failed  - пароль невірний, логується на рівні error
     """
+    # Сообщение, которое укажем в логе
     log_message = f"Login event - Username: {username}, Status: {status}"
+    # Получаем путь к папке, где находится данный файл (lesson_15)
+    current_dir = os.path.dirname(__file__)
+    # Получаем путь к лог файлу, который находится на уровень выше папки lesson_15
+    log_file = os.path.abspath(os.path.join(current_dir, '..', 'login_system.log'))
 
-    # Створення та налаштування логера
-    logging.basicConfig(
-        filename='login_system.log',
-        level=logging.INFO,
-        format='%(asctime)s - %(message)s'
-        )
+    # Создание и настройка логера
     logger = logging.getLogger("log_event")
+    logger.setLevel(logging.INFO)  # Устанавливаем уровень логирования
+
+    # Создаем обработчик для записи в файл
+    file_handler = logging.FileHandler(log_file, encoding='utf-8')
+    file_handler.setLevel(logging.INFO)  # Устанавливаем уровень логирования для обработчика
+
+    # Создаем форматтер и добавляем его к обработчику
+    formatter = logging.Formatter('%(asctime)s - %(message)s')
+    file_handler.setFormatter(formatter)
+
+    # Удаляем все предыдущие обработчики (чтобы избежать дублирования)
+    logger.handlers = []
+
+    # Добавляем обработчик к логгеру
+    logger.addHandler(file_handler)
 
     # Логування події
     if status == "success":
@@ -35,3 +52,8 @@ def log_event(username: str, status: str):
         logger.warning(log_message)
     else:
         logger.error(log_message)
+
+
+log_event('serhii', 'success')
+log_event('ihor', 'expired')
+log_event('denys', 'failed')
