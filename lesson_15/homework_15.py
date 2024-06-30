@@ -6,6 +6,14 @@
 
 import logging
 
+# Створення та налаштування логера
+logging.basicConfig(
+    filename='login_system.log',
+    level=logging.DEBUG,
+    format='%(asctime)s - %(message)s'
+)
+logger = logging.getLogger("log_event")
+
 def log_event(username: str, status: str):
     """
     Логує подію входу в систему.
@@ -20,13 +28,6 @@ def log_event(username: str, status: str):
     """
     log_message = f"Login event - Username: {username}, Status: {status}"
 
-    # Створення та налаштування логера
-    logging.basicConfig(
-        filename='login_system.log',
-        level=logging.INFO,
-        format='%(asctime)s - %(message)s'
-        )
-    logger = logging.getLogger("log_event")
 
     # Логування події
     if status == "success":
