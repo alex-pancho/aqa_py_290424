@@ -32,3 +32,49 @@
 6. Назначте ревьювером викладача
 7. **Посилання на PR вставте у форму відповіді для ДЗ в навчальній системі**
 """
+class Employee:
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+
+class Manager(Employee):
+    def __init__(self, department, **kwargs):
+        super().__init__(**kwargs)
+        self.department = department
+
+class Developer(Employee):
+    def __init__(self, programming_language, **kwargs):
+        super().__init__(**kwargs)
+        self.programming_language = programming_language
+
+class TeamLead(Manager, Developer):
+    def __init__(self, team_size, **kwargs):
+        # Employee.__init__(self, name, salary)
+        super().__init__(**kwargs)
+        self.team_size = team_size
+
+team_lead = TeamLead(name="Опанас Заливаха", salary=1000, department="QA", programming_language="Python", team_size=7)
+
+print(f"Ім'я тім ліда: {team_lead.name}")
+print(f"Зарплата: {team_lead.salary}")
+print(f"Департамент: {team_lead.department}")
+print(f"Мова програмування: {team_lead.programming_language}")
+print(f"Розмір команди: {team_lead.team_size}")
+print(TeamLead.__mro__)
+
+
+import unittest
+
+class TestTeamLead(unittest.TestCase):
+    def setUp(self):
+        self.team_lead = TeamLead(name="Опанас Заливаха", salary=1000, department="QA", programming_language="Python", team_size=7)
+
+    def test_attributes(self):
+        self.assertEqual(self.team_lead.name, "Опанас Заливаха")
+        self.assertEqual(self.team_lead.salary, 1000)
+        self.assertEqual(self.team_lead.department, "QA")
+        self.assertEqual(self.team_lead.programming_language, "Python")
+        self.assertEqual(self.team_lead.team_size, 7)
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
