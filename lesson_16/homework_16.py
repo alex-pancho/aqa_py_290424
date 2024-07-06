@@ -30,3 +30,107 @@ else:
 
 Написати на це все тести
 """
+class SiteUser:
+    def __init__(self, name: str, email: str, access_level: str):
+        self._name = name
+        self._email = email
+        self._access_level = access_level
+        self._logcount = 0
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        self._name = value
+
+    @property
+    def email(self):
+        return self._email
+
+    @email.setter
+    def email(self, value):
+        self._email = value
+
+    @property
+    def access_level(self):
+        return self._access_level
+
+    @access_level.setter
+    def access_level(self, value):
+        self._access_level = value
+
+    @property
+    def logcount(self):
+        return self._logcount
+
+    def increment_logcount(self):
+        self._logcount += 1
+
+    def __str__(self):
+        return f"Користувач: {self._name}, Електронна пошта: {self._email}, Рівень доступу: {self._access_level}"
+
+    def __eq__(self, other):
+        if isinstance(other, SiteUser):
+            return self._access_level == other._access_level
+        return False
+
+
+user1 = SiteUser("John Doe", "john.doe@example.com", "user")
+user2 = SiteUser("Jane Smith", "jane.smith@example.com", "admin")
+
+print(user1)
+
+
+
+if user1 == user2:
+    print("Користувачі однакові")
+else:
+    print("Користувачі різні")
+
+
+#Tests
+
+import unittest
+
+
+class TestSiteUser(unittest.TestCase):
+    def setUp(self):
+        self.user1 = SiteUser("John Doe", "john.doe@example.com", "user")
+        self.user2 = SiteUser("Jane Smith", "jane.smith@example.com", "admin")
+
+    def test_attributes(self):
+        self.assertEqual(self.user1.name, "John Doe")
+        self.assertEqual(self.user1.email, "john.doe@example.com")
+        self.assertEqual(self.user1.access_level, "user")
+        self.assertEqual(self.user1.logcount, 0)
+
+    def test_setters(self):
+        self.user1.name = "Johnny Doe"
+        self.user1.email = "johnny.doe@example.com"
+        self.user1.access_level = "moderator"
+
+        self.assertEqual(self.user1.name, "Johnny Doe")
+        self.assertEqual(self.user1.email, "johnny.doe@example.com")
+        self.assertEqual(self.user1.access_level, "moderator")
+
+    def test_increment_logcount(self):
+        self.user1.increment_logcount()
+        self.assertEqual(self.user1.logcount, 1)
+        self.user1.increment_logcount()
+        self.assertEqual(self.user1.logcount, 2)
+
+    def test_str(self):
+        expected_str = "Користувач: John Doe, Електронна пошта: john.doe@example.com, Рівень доступу: user"
+        self.assertEqual(str(self.user1), expected_str)
+
+    def test_eq(self):
+        user3 = SiteUser("Another User", "another.user@example.com", "user")
+        self.assertTrue(self.user1 == user3)
+        self.assertFalse(self.user1 == self.user2)
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
+
