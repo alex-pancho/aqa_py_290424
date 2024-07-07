@@ -21,3 +21,5 @@ def factorial_generator(n):
 
 for fact in factorial_generator(5):
     pass
+
+
