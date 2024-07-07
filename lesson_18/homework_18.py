@@ -1,5 +1,4 @@
 
-
 def log_factorial_calls(func):
     def wrapper(n):
         print(f"Calling {func.__name__}({n})")
@@ -21,5 +20,3 @@ def factorial_generator(n):
 
 for fact in factorial_generator(5):
     pass
-
-
