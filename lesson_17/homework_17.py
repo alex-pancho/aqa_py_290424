@@ -32,3 +32,40 @@
 6. Назначте ревьювером викладача
 7. **Посилання на PR вставте у форму відповіді для ДЗ в навчальній системі**
 """
+from abc import ABC
+import unittest
+
+class Employee(ABC):
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+
+class Manager(Employee):
+    def __init__(self, name, salary, department):
+        Employee.__init__(self, name, salary)
+        self.department = department
+
+class Developer(Employee):
+    def __init__(self, name, salary, programming_language):
+        Employee.__init__(self, name, salary)
+        self.programming_language = programming_language
+
+class TeamLead(Manager, Developer):
+    def __init__(self, name, salary, department, programming_language,team_size ):
+        Manager.__init__(self, name, salary, department)
+        Developer.__init__(self, name, salary, programming_language)
+        self.team_size = team_size
+
+class TestTeamLead(unittest.TestCase):
+    def setUp(self):
+        self.team_lead = TeamLead("Maryna", 100000, "QA", "Python", 25)
+
+    def test_attributes(self):
+        self.assertEqual(self.team_lead.name, 'Maryna')
+        self.assertEqual(self.team_lead.salary,100000)
+        self.assertEqual(self.team_lead.programming_language,'Python')
+        self.assertEqual(self.team_lead.department, 'QA')
+        self.assertEqual(self.team_lead.team_size, 25)
+
+if __name__ == "__main__":
+    unittest.main()
