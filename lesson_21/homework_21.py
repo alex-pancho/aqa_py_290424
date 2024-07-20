@@ -37,3 +37,37 @@ https://petstore.swagger.io/
 
     1. Обробіть відпові
 """
+import json
+from func_request import make_get_request, make_post_request, make_delete_request
+from template import add_new_pet_request_body_template
+
+
+URL = 'https://petstore.swagger.io/v2'
+endpoint_find_pet_by_status = '/pet/findByStatus'
+endpoint_pet = '/pet'
+params_available_status = {'status': 'available'}
+
+
+if __name__ == '__main__':
+    # 1. Отримати список доступних тварин (метод GET).
+    available_pets_response = make_get_request(url=URL, endpoint=endpoint_find_pet_by_status, params=params_available_status)
+    available_pets_pretty_json = json.dumps(available_pets_response, indent=4, ensure_ascii=False)
+    print(f'\n1. Список доступных животных: {available_pets_pretty_json}')
+
+    # 2. Додати нову тварину (метод POST).
+    new_pet_request_body = add_new_pet_request_body_template()
+    add_new_pet_response = make_post_request(url=URL, endpoint=endpoint_pet, body=new_pet_request_body)
+    add_new_pet_pretty_json = json.dumps(add_new_pet_response, indent=4, ensure_ascii=False)
+    print(f'\n2. Добавление нового животного (ответ): {add_new_pet_pretty_json}')
+
+    # 3. Знайти тварину за ідентифікатором (метод GET)
+    find_pet_by_id_url = URL + endpoint_pet + '/' + str(add_new_pet_response['id'])
+    get_pet_by_id_response = make_get_request(full_url=find_pet_by_id_url)
+    get_pet_by_id_pretty_json = json.dumps(get_pet_by_id_response, indent=4, ensure_ascii=False)
+    print(f'\n3. Нашли добавленное животное по id: {get_pet_by_id_pretty_json}')
+
+    # 4. Видалити тварину за ідентифікатором (метод DELETE)
+    delete_pet_by_id_url = find_pet_by_id_url
+    delete_pet_by_id_response = make_delete_request(full_url=delete_pet_by_id_url)
+    delete_pet_by_id_pretty_json = json.dumps(delete_pet_by_id_response, indent=4, ensure_ascii=False)
+    print(f'\n4. Удалили добавленное животное по id: {delete_pet_by_id_pretty_json}')
