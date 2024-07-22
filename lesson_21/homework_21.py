@@ -37,3 +37,61 @@ https://petstore.swagger.io/
 
     1. Обробіть відпові
 """
+
+import requests
+import json
+
+
+def animals_available(status="available"):
+    url = "https://petstore.swagger.io/v2/pet/findByStatus"
+    response = requests.get(url, params={"status": status})
+    if response.status_code == 200:
+        pets = response.json()
+        for pet in pets:
+            print(f"ID: {pet['id']}, Name: {pet['name']}, Status: {pet['status']}")
+    else:
+        print(f"Failed to get. Status code: {response.status_code}")
+
+def add_pet(name, status="available"):
+    url = "https://petstore.swagger.io/v2/pet"
+    pet = {
+        "id": 0,
+        "category": {"id": 0, "name": "string"},
+        "name": name,
+        "photoUrls": ["string"],
+        "tags": [{"id": 0, "name": "string"}],
+        "status": status
+    }
+    headers = {"Content-Type": "application/json"}
+    response = requests.post(url, headers=headers, data=json.dumps(pet))
+    if response.status_code == 200:
+        print("Pet added")
+    else:
+        print(f"Failed to add. Status code: {response.status_code}")
+
+def find_pet_id(pet_id):
+    url = "https://petstore.swagger.io/v2/pet/{pet_id}"
+    response = requests.get(url)
+    if response.status_code == 200:
+        pet = response.json()
+        print(f"ID: {pet['id']}, Name: {pet['name']}, Status: {pet['status']}")
+    else:
+        print(f"Failed to find. Status code: {response.status_code}")
+
+def delete_pet(pet_id):
+    url = "https://petstore.swagger.io/v2/pet/{pet_id}"
+    response = requests.delete(url)
+    if response.status_code == 200:
+        print("Pet deleted")
+    else:
+        print(f"Failed to delete. Status code: {response.status_code}")
+
+
+if __name__ == "__main__":
+    animals_available("available")
+    add_pet("Dog", "available")
+    find_pet_id(1)
+    delete_pet(1)
+
+
+
