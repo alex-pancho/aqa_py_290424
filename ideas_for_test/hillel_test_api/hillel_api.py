@@ -109,7 +109,7 @@ class Cars():
 
     @staticmethod
     def cars_id_get(s: requests.session, request_body: dict):
-        id_ = request_body.get("id", 0)
+        id_ = request_body['data']['id']
         endpoint = f"/cars/{id_}"
         return s.get(base_api_url+endpoint)
 
