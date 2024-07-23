@@ -53,7 +53,7 @@ class Users():
         return s.put(base_api_url+endpoint, json=request_body)
 
     @staticmethod
-    def resetpassword(s:requests.session, user_id:int, token:str):
+    def resetpassword_with_token(s:requests.session, user_id:int, token:str): #перейменування функції
         # TODO: make this part better
         endpoint = f"/users/resetpassword/{user_id}/{token}"
         return s.get(base_api_url+endpoint)
