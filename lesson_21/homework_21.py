@@ -51,8 +51,10 @@ def get_all_pets():
         for pet in all_pets:
             name = pet.get('name', 'Без імені')
             print(f"ID: {pet['id']}, Ім'я: {name}, Статус: {pet['status']}")
+        return all_pets
     else:
         print(f"Помилка отримання списку всіх тварин: {response.status_code} - {response.text}")
+        return None
 
 def get_pets_by_status(statuses):
     url = f"{BASE_URL}/pet/findByStatus"
@@ -64,8 +66,10 @@ def get_pets_by_status(statuses):
         for pet in pets:
             name = pet.get('name', 'Без імені')
             print(f"ID: {pet['id']}, Ім'я: {name}, Статус: {pet['status']}")
+        return pets
     else:
         print(f"Помилка отримання списку тварин: {response.status_code} - {response.text}")
+        return None
 
 def add_pet(name, status):
     url = f"{BASE_URL}/pet"
@@ -90,28 +94,32 @@ def get_pet_by_id(pet_id):
         pet = response.json()
         name = pet.get('name', 'Без імені')
         print(f"Знайдено тварину: ID: {pet['id']}, Ім'я: {name}, Статус: {pet['status']}")
+        return pet
     else:
         print(f"Помилка пошуку тварини за ID: {response.status_code} - {response.text}")
+        return None
 
 def delete_pet_by_id(pet_id):
     url = f"{BASE_URL}/pet/{pet_id}"
     response = requests.delete(url)
     if response.status_code == 200:
         print(f"Тварину з ID {pet_id} видалено успішно.")
+        return True
     else:
         print(f"Помилка видалення тварини: {response.status_code} - {response.text}")
+        return False
 
 # Виклики функцій для тестування
 
 # Отримати список доступних тварин зі статусами "available", "pending" та "sold"
-get_pets_by_status(["available", "pending", "sold"])
+all_pets = get_pets_by_status(["available", "pending", "sold"])
 
 # Додати нову тварину та отримати її ID
 new_pet_id = add_pet("Pushok", "available")
 
 if new_pet_id:
     # Знайти тварину за ідентифікатором
-    get_pet_by_id(new_pet_id)
+    pet = get_pet_by_id(new_pet_id)
 
     # Видалити тварину за ідентифікатором
-    delete_pet_by_id(new_pet_id)
+    deleted = delete_pet_by_id(new_pet_id)
