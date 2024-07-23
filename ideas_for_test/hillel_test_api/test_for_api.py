@@ -74,3 +74,37 @@ def test_sigin_delete_and_cant_resign():
     r_json = r.json()
     assert r.status_code == 400, "Wrong status code"
     assert r_json["status"] == "error", "Key 'error' expected"
+
+def test_create_car():
+    car_data = {
+        "brand": "Mercedes",
+        "model": "EQS",
+        "year": 2024,
+        "mileage": 15000
+    }
+    r = API.cars.cars_post(s, car_data)
+    r_json = r.json()
+    assert r.status_code == 200, "Wrong status code"
+    assert r_json["status"] == "ok", "Key 'status' is not ok"
+
+def test_edit_car():
+    car_data = {
+        "id": 1,
+        "brand": "Mercedes",
+        "model": "EQS",
+        "year": 2025,
+        "mileage": 100
+    }
+    r = API.cars.cars_id_put(s, car_data)
+    r_json = r.json()
+    assert r.status_code == 200, "Wrong status code"
+    assert r_json["status"] == "ok", "Key 'status' is not ok"
+
+def test_get_car_data():
+    car_data = {
+        "id": 1
+    }
+    r = API.cars.cars_id_get(s, car_data)
+    r_json = r.json()
+    assert r.status_code == 200, "Wrong status code"
+    assert r_json["status"] == "ok", "Key 'status' is not ok"
