@@ -37,3 +37,85 @@ https://petstore.swagger.io/
 
     1. Обробіть відпові
 """
+import requests
+import json
+def get_animal():
+    "Отримання списку доступних тварин"
+    url = "https://petstore.swagger.io/v2/pet/findByStatus"
+    params = {'status':"available"}
+    response = requests.get(url, params=params)
+    if response.status_code == 200:
+        data = response.json()
+        return data
+    else:
+        print( "WRONG", response.status_code)
+print(get_animal())
+
+
+def add_animal():
+    "Додавання нової тварини"
+    url = 'https://petstore.swagger.io/v2/pet'
+    new_pet = {
+  "id": 9223372036854590000,
+  "category": {
+    "id": 56478,
+    "name": "Barsik"
+  },
+  "status": "available"
+}
+    response = requests.post(url, data=json.dumps(new_pet), headers={"Content-Type": "application/json"})
+    if response.status_code == 200:
+        created_data = response.json()
+        print("Animal created", created_data)
+    else:
+        print("Mistake. Status code is:", response.status_code)
+print(add_animal())
+
+
+def find_animal():
+    "Знайти тварину за id"
+    url='https://petstore.swagger.io/v2/pet/2'
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        return data
+    else:
+        print("MISTAKE. There is no animal with this id", response.status_code)
+print(find_animal())
+
+
+def delete_animal():
+    "Видалити тварину за id"
+    url = 'https://petstore.swagger.io/v2/pet/1'
+
+    response = requests.delete(url)
+    if response.status_code == 200:
+        data = response.json()
+        print("Дані видалено")
+    else:
+        print("MISTAKE", response.status_code)
+print(delete_animal())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
