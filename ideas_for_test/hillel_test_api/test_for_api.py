@@ -74,3 +74,65 @@ def test_sigin_delete_and_cant_resign():
     r_json = r.json()
     assert r.status_code == 400, "Wrong status code"
     assert r_json["status"] == "error", "Key 'error' expected"
+
+    
+    
+def test_resset_password_positive():
+    user_data = {
+        "user_id": 133645, #valid user id
+        "token": "valid_token" #valid token
+        }
+    r = API.users.resetpassword(s, user_data)
+    r_json = r.json()
+    assert r.status_code == 200,"Wrong status code"
+    assert r_json["status"] == "ok", "Key 'status' is not ok"
+
+
+def test_resset_password_negative_invalid_user_id():
+    user_data = {
+        "user_id": 999999, #invalid user id
+        "token": "valid_token"  #valid token
+    }
+    r = API.users.resetpassword(s, user_data)
+    r_json = r.json()
+    assert r.status_code == 404,"Wrong status code"
+    assert r_json["status"] == "error", "Key 'status' is not error"
+
+
+def test_resset_password_negative_invalid_token():
+    user_data = {
+        "user_id": 133645, #valid user id
+        "token": "invalid_token"  #invalid token
+    }
+    r = API.users.resetpassword(s, user_data)
+    r_json = r.json()
+    assert r.status_code == 404,"Wrong status code"
+    assert r_json["status"] == "error", "Key 'status' is not error"
+
+
+def test_resset_password_negative_no_user_id():
+    user_data = {
+        "token": "ivalid_token"  #ivalid token
+    }
+    r = API.users.resetpassword(s, user_data)
+    r_json = r.json()
+    assert r.status_code == 404,"Wrong status code"
+    assert r_json["status"] == "error", "Key 'status' is not error"     
+
+
+def test_resset_password_negative_no_token():
+    user_data = {
+        "user_id": 133645, #valid user id
+    }
+    r = API.users.resetpassword(s, user_data)
+    r_json = r.json()
+    assert r.status_code == 404,"Wrong status code"
+    assert r_json["status"] == "error", "Key 'status' is not error"
+
+
+def test_resset_password_negative_empty_request():
+    user_data = {}
+    r = API.users.resetpassword(s, user_data)
+    r_json = r.json()
+    assert r.status_code == 404,"Wrong status code"
+    assert r_json["status"] == "error", "Key 'status' is not error"
