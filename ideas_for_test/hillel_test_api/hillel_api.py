@@ -53,8 +53,10 @@ class Users():
         return s.put(base_api_url+endpoint, json=request_body)
 
     @staticmethod
-    def resetpassword(s:requests.session, user_id:int, token:str):
-        # TODO: make this part better
+    def resetpassword(s:requests.session,request_body: dict):
+        # TODO:  this part was made better
+        user_id = request_body.get("user_id")
+        token = request_body.get("token")
         endpoint = f"/users/resetpassword/{user_id}/{token}"
         return s.get(base_api_url+endpoint)
 
