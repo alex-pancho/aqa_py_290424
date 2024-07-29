@@ -37,3 +37,68 @@ https://petstore.swagger.io/
 
     1. Обробіть відпові
 """
+
+import requests
+
+
+BASE_URL = "https://petstore.swagger.io/v2"
+
+def get_pets_by_status(status):
+    url = f"{BASE_URL}/pet/findByStatus"
+    response = requests.get(url, params={"status": status})
+    if response.status_code == 200:
+        pets = response.json()
+        print(f"Pets with status '{status}':")
+        for pet in pets:
+            print(f"ID: {pet['id']}, Name: {pet['name']}, Status: {pet['status']}")
+    else:
+        print(f"Failed to retrieve pets. Status code: {response.status_code}")
+
+def add_new_pet(name, status):
+    url = f"{BASE_URL}/pet"
+    pet_data = {
+        "id": 0,
+        "name": name,
+        "status": status
+    }
+    response = requests.post(url, json=pet_data)
+    if response.status_code == 200 or response.status_code == 201:
+        pet = response.json()
+        print(f"Successfully added pet: ID: {pet['id']}, Name: {pet['name']}, Status: {pet['status']}")
+    else:
+        print(f"Failed to add pet. Status code: {response.status_code}")
+
+def get_pet_by_id(pet_id):
+    url = f"{BASE_URL}/pet/{pet_id}"
+    response = requests.get(url)
+    if response.status_code == 200:
+        pet = response.json()
+        print(f"Found pet: ID: {pet['id']}, Name: {pet['name']}, Status: {pet['status']}")
+    else:
+        print(f"Failed to retrieve pet. Status code: {response.status_code}")
+
+def delete_pet_by_id(pet_id):
+    url = f"{BASE_URL}/pet/{pet_id}"
+    response = requests.delete(url)
+    if response.status_code == 200:
+        print(f"Successfully deleted pet with ID: {pet_id}")
+    else:
+        print(f"Failed to delete pet. Status code: {response.status_code}")
+
+if __name__ == "__main__":
+    # Отримати список доступних тварин
+    status = input("Enter status to find pets (available, pending, sold): ")
+    get_pets_by_status(status)
+
+    # Додати нову тварину
+    name = input("Enter the name of the new pet: ")
+    status = input("Enter the status of the new pet (available, pending, sold): ")
+    add_new_pet(name, status)
+
+    # Знайти тварину
+    pet_id = int(input("Enter the ID of the pet to find: "))
+    get_pet_by_id(pet_id)
+
+    # Видалити тварину
+    pet_id = int(input("Enter the ID of the pet to delete: "))
+    delete_pet_by_id(pet_id)
