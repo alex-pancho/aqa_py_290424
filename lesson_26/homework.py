@@ -1,7 +1,7 @@
 import requests
 
-username = "aaa"
-passwd = "bb"
+username = "guest"
+passwd = "welcome2qauto"
 url = f"https://{username}:{passwd}@qauto2.forstudy.space"
 
 
