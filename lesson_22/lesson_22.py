@@ -16,11 +16,11 @@ def auth_signup(name:str, last_name:str, email:str, password:str):
         "repeatPassword": password
         }
     # base
-    auth = (config["USERNAME"], config["PASSWORD"])
-    print(auth)
-    auth_hash = HTTPDigestAuth('username', 'password')
-    my_token = 'my_secret_token'
-    headers = {'Authorization': f'Bearer {my_token}'}
+    # auth = (config["USERNAME"], config["PASSWORD"])
+    # print(auth)
+    # auth_hash = HTTPDigestAuth('username', 'password')
+    # my_token = 'my_secret_token'
+    # headers = {'Authorization': f'Bearer {my_token}'}
     response = requests.post(base_url+"/auth/signup", json=user_data) # , auth=auth, headers=headers
     return response
 
